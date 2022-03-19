@@ -1,0 +1,395 @@
+/* Importar fonte */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap");
+
+/* reset CSS mini */
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  font-size: 12px;
+  font-family: "Inter", sans-serif;
+  background: var(--gray-400);
+  text-transform: uppercase;
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 720px;
+}
+
+body {
+  position: relative;
+}
+
+:root {
+  /* Roxinho Vanilla */
+  --purple-50: #f3f2ff;
+  --purple-100: #c8c2ff;
+  --purple-200: #a491ff;
+  --purple-300: #8561ff;
+  --purple-400: #6b31ff;
+  --purple-500: #50f;
+  --purple-600: #4100cf;
+  --purple-700: #30009f;
+  --purple-800: #210070;
+  --purple-900: #130040;
+
+  /* Cinza :( */
+  --gray-50: #fff;
+  --gray-100: #fafafa;
+  --gray-200: #f5f5f5;
+  --gray-300: #e8e8e8;
+  --gray-400: #d9d9d9;
+  --gray-500: #bfbfbf;
+  --gray-600: #8c8c8c;
+  --gray-700: #595959;
+  --gray-800: #262626;
+  --gray-900: #000;
+
+  /* Verde */
+  --green-50: #f6ffed;
+  --green-100: #d9f7be;
+  --green-200: #b7eb8f;
+  --green-300: #95de64;
+  --green-400: #73d13d;
+  --green-500: #52c41a;
+  --green-600: #389e0d;
+  --green-700: #237804;
+  --green-800: #135200;
+  --green-900: #092b00;
+
+  /* Vermelho */
+  --red-50: #fff1f0;
+  --red-100: #ffccc7;
+  --red-200: #ffa39e;
+  --red-300: #ff7875;
+  --red-400: #ff4d4f;
+  --red-500: #f5222d;
+  --red-600: #cf1322;
+  --red-700: #a8071a;
+  --red-800: #820014;
+  --red-900: #5c0011;
+
+  /* Amarelo */
+  --yellow-50: #fffbe6;
+  --yellow-100: #fff1b8;
+  --yellow-200: #ffe58f;
+  --yellow-300: #ffd666;
+  --yellow-400: #ffc53d;
+  --yellow-500: #faad14;
+  --yellow-600: #d48806;
+  --yellow-700: #ad6800;
+  --yellow-800: #874d00;
+  --yellow-900: #613400;
+
+  /* Azul é a cor mais quente */
+  --blue-50: #f0f5ff;
+  --blue-100: #d6e4ff;
+  --blue-200: #adc6ff;
+  --blue-300: #85a5ff;
+  --blue-400: #597ef7;
+  --blue-500: #2f54eb;
+  --blue-600: #1d39c4;
+  --blue-700: #10239e;
+  --blue-800: #061178;
+  --blue-900: #030852;
+
+  /* Misc */
+  --primary-color: #50f;
+  --secondary-color: #fff;
+  --success-color: #52c41a;
+  --error-color: #f5222d;
+  --warning-color: #faad14;
+  --main-background: #fafafa;
+}
+
+div.logo {
+  display: block;
+  width: 100%;
+  margin: 10px 0px 10px 0px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+div.logo > p {
+  font-size: 12px;
+}
+
+.toggler {
+  z-index: 99;
+  height: 40px;
+  width: 50px;
+  position: absolute;
+  top: 120px;
+  left: calc(50% - 30px);
+  cursor: pointer;
+  opacity: 0;
+}
+
+.hamburger {
+  position: absolute;
+  top: 85px;
+  left: calc(50% - 32.5px);
+  height: 40px;
+  width: 40px;
+  padding-top: 2.5rem;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  z-index: 98;
+}
+
+.hamburger > div {
+  position: relative;
+  top: 70%;
+  left: 50%;
+  background: var(--secondary-color);
+  height: 2px;
+  width: 60%;
+  transition: all 0.4s ease;
+}
+
+.hamburger > div::before,
+.hamburger > div::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  background: var(--secondary-color);
+  width: 100%;
+  height: 2px;
+  transition: all 0.4s ease;
+}
+
+.hamburger > div::after {
+  top: 10px;
+}
+
+.toggler:checked + .hamburger > div {
+  background: var(--purple-400);
+}
+
+.toggler:checked + .hamburger > div::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.toggler:checked + .hamburger > div::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+.toggler:checked ~ .menu {
+  max-width: none;
+  width: 100%;
+  left: 0%;
+  height: 470px;
+  border-top-left-radius: 0%;
+  border-top-right-radius: 0%;
+  border-bottom-left-radius: 2%;
+  border-bottom-right-radius: 2%;
+  margin-top: 12px;
+}
+
+.toggler:checked ~ .menu > div > ul {
+  display: initial;
+  position: absolute;
+  left: calc(50% - 150px);
+  top: 45px;
+  text-align: center;
+  margin-left: 0%;
+}
+
+.menu {
+  min-width: 250px;
+  max-width: 250px;
+  background: var(--purple-400);
+  height: 425px;
+  transition: all 0.2s ease;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  display: block;
+  float: left;
+  box-shadow: var(--purple-200) 0px 0px 3px;
+}
+
+.menu > div > ul {
+  display: flex;
+  flex-direction: column;
+  top: 70px;
+  color: var(--secondary-color);
+}
+
+.menu > div > ul > li {
+  list-style: none;
+  padding: 1rem;
+  width: 180px;
+  margin-left: 5%;
+}
+
+.menu > div > ul > li > a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.menu > div > ul > li:hover {
+  color: var(--purple-400);
+  background: var(--secondary-color);
+  border-radius: 15px;
+  transition: all 0.3;
+}
+
+.menu > div > ul > li:hover a {
+  color: var(--purple-400);
+  transition: all 0.3;
+}
+
+@media (max-width: 800px) {
+  .html {
+    min-width: 720px;
+  }
+  .menu {
+    position: relative;
+    height: 65px;
+    width: 65px;
+    left: calc(50% - 32.5px);
+    border-radius: 50%;
+    margin-top: 12px;
+    float: none;
+    min-width: 0px;
+  }
+  .menu > div > ul {
+    display: none;
+  }
+
+  .hamburger {
+    opacity: 100;
+  }
+  .toggler {
+    display: initial;
+  }
+}
+
+@media (min-width: 801px) {
+  .hamburger {
+    opacity: 0;
+  }
+  .toggler {
+    display: none;
+  }
+
+  .menu > div {
+    display: initial;
+  }
+
+  .menu > div > ul {
+    display: initial;
+  }
+}
+
+/* TÍTULO CLIENTES */
+.titulo {
+  float: left;
+  width: 200px;
+  margin-left: 50px;
+  background: var(--purple-800);
+  border-radius: 50px;
+  color: var(--secondary-color);
+  text-align: center;
+  margin-top: 20px;
+  box-shadow: var(--purple-900) 0px 0px 3px;
+  font-size: 1.5rem;
+}
+
+/* DIV BARRA DE PESQUISA */
+.barraPesquisa {
+  float: left;
+  display: block;
+  position: relative;
+  left: 50px;
+  top: 25px;
+  width: 510px;
+  height: 45px;
+  background-color: var(--purple-50);
+  box-shadow: var(--purple-200) 0px 0px 3px;
+  border-radius: 10px;
+}
+
+/* BARRA DE PESQUISA */
+.formInput {
+  display: block;
+  width: 300px;
+  height: 20px;
+  top: 50%;
+  transform: translate(0%, -50%);
+  left: 30px;
+  border-radius: 20px;
+  border: 1px solid var(--purple-200);
+  outline: none;
+  padding-left: 15px;
+  position: absolute;
+  font-size: 0.8em;
+}
+
+/* CONTEÚDO BARRA DE PESQUISA */
+.focus-formInput {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  top: 45%;
+  transform: translate(0%, -20%);
+  left: 30px;
+  font-size: 0.8em;
+}
+
+/* ANIMAÇÃO BARRA DE PESQUISA */
+.focus-formInput::before {
+  color: var(--purple-100);
+  line-height: 1.2;
+  content: attr(data-placeholder);
+  display: block;
+  padding: 5px 0px 0px 15px;
+  transition: all 0.4s;
+}
+
+/* ANIMAÇÃO BARRA DE PESQUISA */
+.formInput:valid + .focus-formInput::before,
+.formInput:focus + .focus-formInput::before {
+  font-weight: 0;
+  outline: none;
+  content: "";
+}
+
+.fundo-btnPesquisa {
+  display: block;
+  position: relative;
+  left: 370px;
+  top: 50%;
+  transform: translate(0%, -50%);
+  height: 25px;
+  width: 110px;
+}
+
+.btnPesquisa {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-color: transparent;
+  background-color: var(--purple-400);
+  color: var(--secondary-color);
+  box-shadow: var(--purple-200) 0px 0px 3px;
+  border-radius: 15px;
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.btnPesquisa:hover {
+  border-color: var(--purple-400);
+  background-color: var(--secondary-color);
+  color: var(--purple-400);
+}
