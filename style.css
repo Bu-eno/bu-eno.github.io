@@ -13,10 +13,6 @@ body {
   box-sizing: border-box;
 }
 
-html {
-  min-width: 720px;
-}
-
 body {
   position: relative;
 }
@@ -128,7 +124,7 @@ div.logo > p {
 
 .hamburger {
   position: absolute;
-  top: 85px;
+  top: 75px;
   left: calc(50% - 32.5px);
   height: 40px;
   width: 40px;
@@ -141,7 +137,7 @@ div.logo > p {
 
 .hamburger > div {
   position: relative;
-  top: 70%;
+  top: 28px;
   left: 50%;
   background: var(--secondary-color);
   height: 2px;
@@ -230,6 +226,7 @@ div.logo > p {
   color: var(--secondary-color);
   text-decoration: none;
   font-size: 1.2rem;
+  display: block;
 }
 
 .menu > div > ul > li:hover {
